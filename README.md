@@ -46,7 +46,7 @@ Our analytical strategy involves preprocessing uploaded study datasets, visualis
 
 -   The prevalence of infection is quite low in our sample (~7%).
 
-    ![](results/infect_preva.png.png)
+    ![](results/infect_preva.png)
 
 
 -   We found significant differences in the geometric mean antibody titer for most virus strains and assay test.
