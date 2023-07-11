@@ -72,23 +72,33 @@ antibody_dta %>%
   lnk_lab %>% group_by(link, infect_status) %>% 
     count () %>% group_by (link) %>% 
     mutate (prop = round(n/(sum(n)), 3)) %>% 
+    mutate (label = ifelse (infect_status == "Infected",
+                            paste0(prop * 100, "%"),
+                            NA)) %>% 
     ggplot(aes(infect_status,
                prop)) +
     geom_col() + facet_wrap(~link) +
+    geom_text (aes(x = infect_status, label = label, y = 0.1),
+               family = "special", size = 12) +
     scale_fill_manual("black") +
     scale_y_continuous(labels = scales::percent) +
-    theme_bw(base_family = "barlow",
-             base_size = 15) + theme (legend.position = "bottom",
-                                              legend.key.width = unit(2.0,"cm"),
-                                              strip.background = element_rect(fill = "white"),
-                                              legend.title = element_text(family = "special"),
-                                              legend.text = element_text(family = "special"),
-                                              title = element_text(size = 14)) +
+    theme_bw(base_family = "barlow", 
+             base_size = 45) + theme (legend.position = "none",
+                                      legend.key.width = unit(2.0,"cm"),
+                                      panel.grid = element_line(linewidth = 0.1),
+                                      legend.title = element_text(family = "special"),
+                                      legend.text = element_text(family = "special"),
+                                      strip.background = element_rect(fill = "white"),
+                                      plot.title = element_text(size = 60, family = "special",
+                                                                lineheight = 0.5)) +
     labs (y = "",
           x = "", y = "",
-          title = "Prevalence of Influenza infection (LMR < 2)")
+          title = "Prevalence of Influenza \nInfection (LMR < 2)")
 
-
+  ggsave("results/infect_preva.png", 
+         width = 8,
+         height = 9.5, dpi = 250)
+  
   
 new_data <- data.frame()
 
@@ -124,23 +134,26 @@ for (virus in unique(antibody_dta$VIRUS_STRAIN_REPORTED)) {
   geom_point() +
   geom_errorbar(aes(ymin = lwr.ci, ymax = upr.ci),
                 width = 0.1, size = 0.6) +
-  facet_grid(virus ~ titer) + labs (y = "Geometric mean antibody-titers ",
-                                    title = "Geometric Mean of Antibody Titers in Healthy Adults \nby Study Period and Antibody") +
+  facet_grid(titer ~ virus) + labs (y = "Geometric mean antibody-titers ",
+                                    title = "Geometric Mean of Antibody Titers in Healthy Adults by Study Period and Antibody") +
   theme_bw(base_family = "barlow", 
            base_size = 45) + theme (legend.position = "bottom",
                                     legend.key.width = unit(2.0,"cm"),
                                     panel.grid = element_line(linewidth = 0.1),
+                                    axis.text.y = element_text (size = 50,
+                                                                family = "barlow"),
                                             legend.title = element_text(family = "special"),
                                             legend.text = element_text(family = "special"),
                                     strip.background = element_rect(fill = "white"),
-                                            title = element_text(size = 60,
+                                    strip.text = element_text(size = 55),
+                                    title = element_text(size = 65, family = "special",
                                                                  lineheight = 0.5)) +
   geom_hline(data = data.frame(yintercept = 40,titer="HAI"),
                         aes(yintercept = yintercept), linetype = "dotted")
     
 
-ggsave("results/mean_titers.png", width = 12,
-       height = 15, dpi = 250)
+ggsave("results/mean_titers.png", width = 24,
+       height = 9.5, dpi = 250)
 
 ## Prevalence of Sero Conversion
 rbind(

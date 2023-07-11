@@ -42,6 +42,21 @@ Our analytical strategy involves preprocessing uploaded study datasets, visualis
 
 -   Data outputs generated from the scripts are saved in `data/output`
 
+## Preliminary Results
+
+-   The prevalence of infection is quite low in our sample (~7%).
+
+    ![](results/infect_preva.png.png)
+
+
+-   We found significant differences in the geometric mean antibody titer for most virus strains and assay test.
+
+    !["Geometric Mean Antibody Titer"](results/mean_titers.png)
+
+-   We did not find any significant relationship between the levels of antibody titers (for hemagglutination inhibition assay (HAI) and neutralising antibody) and the risk of infection in healthy adults.
+
+    ![](results/regress_correlates.png)
+
 
 #### **How to run web-application**
 
