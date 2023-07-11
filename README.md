@@ -9,9 +9,7 @@ The DiCAIDS discovery platform built on the R-shiny framework, provides a user-f
 
 The app has five distinctive panels:
 
-<p align="right">
-  <img src="images/dicaids_app.png" />
-</p>
+<img src="images/dicaids_app.png" align="right" width="40%"/>
 
 - The Browse Panel lets users upload, aggregate, process, and explore single/multiple connected study datasets.
 
