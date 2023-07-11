@@ -7,12 +7,12 @@
 #
 ################################################################################
 
-
 # these are the required packages
-pkgs <- c("tidyverse",      ## Access Google Trends API
-          "readr",          ## Accessing Data on Country Codes
-          "compareGroups",  ## Data Management
-          "kableExtra",     ## Publication Ready GGPlot
+pkgs <- c("dplyr",          ## Data cleaning and wrangling
+          "stringr",        ## String manipulation
+          "readr",          ## Read data into R
+          "compareGroups",  ## Bivariate publication-ready table
+          "kableExtra",     ## Publication ready-tables
           "janitor",        ## Clean variable names
           "colorspace",     ## For sequential fill color in visualisations
           "showtext")       ## For importing fonts into the R session.

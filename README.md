@@ -32,9 +32,9 @@ Our analytical strategy involves preprocessing uploaded study datasets, visualis
 
 -   Download the analysis pack or fork this repository.
 
--   Using RStudio open "DiCAIDS.Rproj" file in the main project directory.
+-   Using RStudio open `"DiCAIDS.Rproj"` file in the main project directory.
 
--   Run the "R/00_master.R" file which runs all analysis scripts in the `code` folder. 
+-   Run the `"R/00_master.R"` file which runs all analysis scripts in the `code` folder. 
 
     Wait. That's it. 
 
@@ -57,5 +57,5 @@ Our analytical strategy involves preprocessing uploaded study datasets, visualis
 
 -   [**Dr. Kehinde Arulaeba**](https://le.ac.uk/people/kehinde-aruleba)
 
--   [**Dr. Adeniyi Francis Fagbamigbe**]
+-   **Dr. Adeniyi Francis Fagbamigbe**
 
